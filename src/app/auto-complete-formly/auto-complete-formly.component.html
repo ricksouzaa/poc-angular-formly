@@ -1,0 +1,9 @@
+<p-autoComplete
+  [field]="to.labelField"
+  [dataKey]="'{{to.keyField}}'"
+  [formControl]="toFormControl"
+  [formlyAttributes]="field"
+  [forceSelection]="true"
+  [suggestions]="suggestions"
+  (completeMethod)="completeMethod($event)">
+</p-autoComplete>
