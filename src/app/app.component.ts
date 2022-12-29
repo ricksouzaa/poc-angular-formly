@@ -11,11 +11,8 @@ import { StateService } from './state.service';
 })
 export class AppComponent {
   form = new FormGroup({});
-
   model: any = {};
-
   fields: FormlyFieldConfig[];
-
   options: FormlyFormOptions = {};
 
   constructor(
