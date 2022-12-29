@@ -29,7 +29,7 @@ export class AppComponent {
       {
         key: 'country',
         type: 'autoComplete',
-        templateOptions: {
+        props: {
           label: 'Pais',
           placeholder: 'Selecione um pais',
           keyField: 'id',
@@ -41,7 +41,7 @@ export class AppComponent {
       {
         key: 'state',
         type: 'autoComplete',
-        templateOptions: {
+        props: {
           label: 'Estado',
           placeholder: 'Selecione um estado',
           keyField: 'id',
@@ -53,7 +53,7 @@ export class AppComponent {
       {
         key: 'price',
         type: 'inputNumber',
-        templateOptions: {
+        props: {
           label: 'Valor',
           placeholder: '0,00',
           required: true
