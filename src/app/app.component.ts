@@ -11,7 +11,14 @@ import { StateService } from './state.service';
 })
 export class AppComponent {
   form = new FormGroup({});
-  model: any = {};
+
+  model: any = {
+    country: {
+      id: 3,
+      name: "Australia"
+    }
+  };
+
   fields: FormlyFieldConfig[];
 
   constructor(
@@ -25,10 +32,10 @@ export class AppComponent {
         templateOptions: {
           label: 'Pais',
           placeholder: 'Selecione um pais',
-          required: true,
           keyField: 'id',
           labelField: 'name',
-          service: this.countryService
+          service: this.countryService,
+          required: true
         }
       },
       {
@@ -37,10 +44,10 @@ export class AppComponent {
         templateOptions: {
           label: 'Estado',
           placeholder: 'Selecione um estado',
-          required: true,
           keyField: 'id',
           labelField: 'name',
-          service: this.stateService
+          service: this.stateService,
+          required: true
         }
       },
       {
@@ -48,7 +55,7 @@ export class AppComponent {
         type: 'inputNumber',
         templateOptions: {
           label: 'Valor',
-          placeholder: 'Informe um valor',
+          placeholder: '0,00',
           required: true
         }
       }

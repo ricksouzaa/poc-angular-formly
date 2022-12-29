@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { FieldType } from '@ngx-formly/core';
+import { Component } from '@angular/core';
+import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 import { debounceTime, distinctUntilChanged, take } from 'rxjs/operators';
 import { AutoCompleteSearch } from './auto-complete-search';
 
@@ -9,15 +8,11 @@ import { AutoCompleteSearch } from './auto-complete-search';
   templateUrl: './auto-complete-formly.component.html',
   styleUrls: ['./auto-complete-formly.component.scss']
 })
-export class AutoCompleteFormlyComponent extends FieldType {
+export class AutoCompleteFormlyComponent extends FieldType<FieldTypeConfig> {
   suggestions: any;
 
-  get toFormControl(): FormControl {
-    return this.formControl as FormControl;
-  }
-
   completeMethod(event: any) {
-    const service: AutoCompleteSearch = this.to.service as AutoCompleteSearch;
+    const service: AutoCompleteSearch = this.props.service as AutoCompleteSearch;
     service.find(event.query)
       .pipe(
         debounceTime(500),
