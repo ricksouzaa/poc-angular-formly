@@ -1,5 +1,5 @@
 <form [formGroup]="form" class="p-fluid">
-  <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+  <formly-form [form]="form" [fields]="fields" [options]="options" [model]="model"></formly-form>
   <button pButton type="submit" class="w-auto mt-2">Submit</button>
 </form>
 <br/>
@@ -9,4 +9,6 @@
   <pre>{{form.status}}</pre>
   <h3>FormValue:</h3>
   <pre>{{form.value | json}}</pre>
+  <h3>Options:</h3>
+  <pre>{{options | json}}</pre>
 </div>

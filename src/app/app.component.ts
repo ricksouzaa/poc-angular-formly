@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { CountryService } from './country.service';
 import { StateService } from './state.service';
 
@@ -12,14 +12,11 @@ import { StateService } from './state.service';
 export class AppComponent {
   form = new FormGroup({});
 
-  model: any = {
-    country: {
-      id: 3,
-      name: "Australia"
-    }
-  };
+  model: any = {};
 
   fields: FormlyFieldConfig[];
+
+  options: FormlyFormOptions = {};
 
   constructor(
     private countryService: CountryService,
@@ -29,6 +26,9 @@ export class AppComponent {
       {
         key: 'country',
         type: 'autoComplete',
+        defaultValue: {
+
+        },
         props: {
           label: 'Pais',
           placeholder: 'Selecione um pais',
@@ -58,6 +58,14 @@ export class AppComponent {
           placeholder: '0,00',
           required: true
         }
+      },
+      {
+        key: 'name',
+        type: 'input',
+        props: {
+          label: 'Name (required)',
+          required: true,
+        },
       }
     ];
   }
